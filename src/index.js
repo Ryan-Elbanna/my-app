@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-// import React, { useState } from 'react';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -14,10 +13,25 @@ const advices = [
     advice: "“Never feel guilty for your decisions. There will always be someone telling you that you are a coward and/or dishonoring your family’s sacrifice. There will always be those who judge you without knowing the circumstances. Do not let others hurt you with their cruel words. Stand tall. Stand your ground.”",
   },
   {
-    advice:"“Hey I am an advice.”",
+    advice:"“You will need to take a stand and work hard to achieve your goals, and you should only do so if you know that your performance is critical to your unit's success.”",
   },
   {
-    advice: "“I am also an advice.”",
+    advice: "“In the first place, this man is a man who deserves to live free and live with dignity in this country. That's not something he needs to live with.”",
+  },
+  {
+    advice: "“In the first place, this man is a man who deserves to live free and live with dignity in this country. That's not something he needs to live with.”",
+  },
+  {
+    advice: "“You are the only human that can save a wounded soldier from a car accident.”",
+  },
+  {
+    advice: "“You have to be brave in the job of protecting the comrades who are defending the country, one of those who was injured by an attack says. But the soldiers who are defending the country are not brave.”",
+  },
+  {
+    advice: "“placeholder”",
+  },
+  {
+    advice: "“placeholder”"
   }
 ];
 
@@ -28,14 +42,36 @@ function App() {
   const getAdvice = () => {
     const index = Math.floor(Math.random() * advices.length);
     setIndex(index);
+
+    const advicesText = document.getElementById("adviceDisplay");
+    advicesText.classList.add("fortnite");
+
+    advicesText.addEventListener("animationend", function() {
+      advicesText.classList.remove("fortnite");
+    })
+
   };
 
-  
+  function updateClock() {
+    var mTime = new Date();
+    var mHours = mTime.getHours();
+    var mMinutes = mTime.getMinutes();
+    var mSeconds = mTime.getSeconds();
+    mMinutes = (mMinutes < 10 ? "0" : "") + mMinutes;
+    mSeconds = (mSeconds < 10 ? "0" : "") + mSeconds;
+    var displayMTime = "Military Time: " + mHours + ":" + mMinutes + ":" + mSeconds;
+    document.getElementById("clock").innerHTML = displayMTime;
+  }
+
+  setInterval(updateClock, 1000);
+
   return (
     <div className="App">
+      <h1 id='clock'></h1>
       <h1>Advice for Soldiers</h1>
+      <p className='briefInfo'>Hey soldier, do you want an advice or advices? Click the button below.</p>
       <div className='adviceContainer'>
-      <p className='adviceDisplay'>{advices[index] && advices[index].advice}</p>
+      <p id='adviceDisplay'>{advices[index] && advices[index].advice}</p>
       </div>
       <button id='adviceButton' onClick={getAdvice}>Want an advice?</button>
     </div>
