@@ -28,11 +28,17 @@ const advices = [
     advice: "“You have to be brave in the job of protecting the comrades who are defending the country, one of those who was injured by an attack says. But the soldiers who are defending the country are not brave.”",
   },
   {
-    advice: "“placeholder”",
+    advice: "“A man goes to war to fight for freedom, to fight to protect those who cannot protect themselves, to fight to help those who cannot help themselves.”",
   },
   {
-    advice: "“placeholder”"
-  }
+    advice: "“You protect the ones you love, you protect the ones you can”",
+  },
+  {
+    advice: "“You are as honorable, courageous and as brave as you are slow to commit yourself, and you are as kind as you are quick to act.”",
+  },
+  {
+    advice: "“Those who didn't die for something they believed in, to a large extent died for something they didn't believe in. For your nation, for the world, for ideals that you don't believe in.”"
+  },
 ];
 
 function App() {
@@ -52,7 +58,7 @@ function App() {
 
   };
 
-  function updateClock() {
+  function militaryClock() {
     var mTime = new Date();
     var mHours = mTime.getHours();
     var mMinutes = mTime.getMinutes();
@@ -63,7 +69,7 @@ function App() {
     document.getElementById("clock").innerHTML = displayMTime;
   }
 
-  setInterval(updateClock, 1000);
+  setInterval(militaryClock, 1000);
 
   return (
     <div className="App">
